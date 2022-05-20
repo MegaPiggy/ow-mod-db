@@ -572,5 +572,46 @@
     "uniqueName": "Tlya.Backerssignal",
     "repo": "Tllya/backers-satellite-signal",
     "parent": "xen.NewHorizons"
+  },
+  {
+    "name": "BepInEx",
+    "uniqueName": "bbepis.BepInEx",
+    "repo": "BepInEx/BepInEx",
+    "alpha": true,
+    "required": true,
+    "utility": true
+  },
+  {
+    "name": "CMOWA",
+    "uniqueName": "Locochoco.CMOWA",
+    "repo": "ShoosGun/CMOWA",
+    "alpha": true,
+    "required": true,
+    "utility": true
+  },
+  {
+    "name": "CAMOWA",
+    "uniqueName": "Locochoco.CAMOWA",
+    "repo": "ShoosGun/CAMOWA",
+    "alpha": true,
+    "utility": true
+  },
+  {
+    "name": "Alpha Fixes",
+    "uniqueName": "Locochoco.AlphaFixes",
+    "repo": "ShoosGun/AlphaFixes",
+    "alpha": true
+  },
+  {
+    "name": "Navinha",
+    "uniqueName": "Locochoco.Navinha",
+    "repo": "ShoosGun/navinha",
+    "alpha": true
+  },
+  {
+    "name": "Free Cam Mod",
+    "uniqueName": "Locochoco.FreeCamMod",
+    "repo": "ShoosGun/FreeCamMod",
+    "alpha": true
   }
 ]
