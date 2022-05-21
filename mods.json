@@ -619,5 +619,11 @@
     "uniqueName": "Locochoco.ProbeGrapple",
     "repo": "ShoosGun/ProbeGrappleMod",
     "alpha": true
+  },
+  {
+    "name": "Cooler Bottom Cams",
+    "uniqueName": "Locochoco.CoolerBottomCams",
+    "repo": "ShoosGun/CBC",
+    "alpha": true
   }
 ]
