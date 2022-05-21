@@ -574,6 +574,11 @@
     "parent": "xen.NewHorizons"
   },
   {
+    "name": "Suit Log",
+    "uniqueName": "dgarro.SuitLog",
+    "repo": "dgarroDC/SuitLog"
+  },
+  {
     "name": "BepInEx",
     "uniqueName": "bbepis.BepInEx",
     "repo": "MegaPiggy/BepInEx",
