@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toJsonString } from "./to-json-string";
 import { DiffItem } from "./get-diff";
 
 function getNotificationTitle(diffItem: DiffItem) {
@@ -76,6 +77,8 @@ export async function sendDiscordNotifications(
         },
       ],
     };
+
+    console.log("postBody", toJsonString(postBody));
 
     axios.post(discordHookUrl, postBody);
 
