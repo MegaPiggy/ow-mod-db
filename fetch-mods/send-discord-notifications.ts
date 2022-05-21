@@ -42,6 +42,11 @@ function getNotificationDescription(diffItem: DiffItem) {
   }
 }
 
+function fixNotificationDescription(description: string) {
+  if (description.length >= 4096) return description.substring(0, 4093) + "...";
+  return description;
+}
+
 function getNotificationColor(diffItem: DiffItem) {
   switch (diffItem.diffType) {
     case "add":
@@ -70,7 +75,7 @@ export async function sendDiscordNotifications(
       embeds: [
         {
           title: getNotificationTitle(diffItem),
-          description: getNotificationDescription(diffItem),
+          description: fixNotificationDescription(getNotificationDescription(diffItem)),
           url: getRelevantMod(diffItem).repo,
           color: getNotificationColor(diffItem),
         },
