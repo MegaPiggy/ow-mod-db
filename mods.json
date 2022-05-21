@@ -613,5 +613,12 @@
     "uniqueName": "Locochoco.FreeCamMod",
     "repo": "ShoosGun/FreeCamMod",
     "alpha": true
+  },
+  {
+    "name": "Probe Grapple",
+    "uniqueName": "Locochoco.ProbeGrapple",
+    "repo": "ShoosGun/ProbeGrappleMod",
+    "utility": true,
+    "alpha": true
   }
 ]
