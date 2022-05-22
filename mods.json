@@ -625,5 +625,11 @@
     "uniqueName": "Locochoco.CoolerBottomCams",
     "repo": "ShoosGun/CBC",
     "alpha": true
+  },
+  {
+    "name": "Automatic Launch Codes",
+    "uniqueName": "MegaPiggy.AutomaticLaunchCodes",
+    "repo": "MegaPiggy/AutomaticLaunchCodes",
+    "alpha": true
   }
 ]
