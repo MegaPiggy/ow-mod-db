@@ -627,9 +627,21 @@
     "alpha": true
   },
   {
+    "name": "Enhanced Mallows",
+    "uniqueName": "Locochoco.EnhancedMallows",
+    "repo": "ShoosGun/EM",
+    "alpha": true
+  },
+  {
     "name": "Automatic Launch Codes",
     "uniqueName": "MegaPiggy.AutomaticLaunchCodes",
     "repo": "MegaPiggy/AutomaticLaunchCodes",
+    "alpha": true
+  },
+  {
+    "name": "No Probe Launch Window",
+    "uniqueName": "MegaPiggy.NoProbeLaunchWindow",
+    "repo": "MegaPiggy/NoProbeLaunchWindow",
     "alpha": true
   }
 ]
