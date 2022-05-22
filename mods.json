@@ -643,5 +643,11 @@
     "uniqueName": "MegaPiggy.NoProbeLaunchWindow",
     "repo": "MegaPiggy/NoProbeLaunchWindow",
     "alpha": true
+  },
+  {
+    "name": "Runtime Unity Editor",
+    "uniqueName": "Locochoco.RuntimeUnityEditor",
+    "repo": "ShoosGun/RuntimeUnityEditor",
+    "alpha": true
   }
 ]
