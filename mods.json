@@ -576,7 +576,7 @@
   {
     "name": "BepInEx",
     "uniqueName": "bbepis.BepInEx",
-    "repo": "BepInEx/BepInEx",
+    "repo": "MegaPiggy/BepInEx",
     "alpha": true,
     "required": true,
     "utility": true
