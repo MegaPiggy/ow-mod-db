@@ -592,9 +592,9 @@
     "utility": true
   },
   {
-    "name": "CMOWA",
-    "uniqueName": "Locochoco.CMOWA",
-    "repo": "ShoosGun/CMOWA",
+    "name": "OWAML",
+    "uniqueName": "Locochoco.OWAML",
+    "repo": "ShoosGun/OWAML",
     "alpha": true,
     "required": true,
     "utility": true
