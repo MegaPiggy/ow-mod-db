@@ -116,14 +116,8 @@ export async function fetchMods(modsJson: string) {
     }
   }
 
-  function getCleanedUpRelease(release: OctokitRelease, uniqueName: string) {
-    var asset = release.assets[0];
-    if (uniqueName == "bbepis.BepInEx") {
-      const filteredAssets = release.assets.filter((asset) => asset.browser_download_url.includes("x86") && !asset.browser_download_url.includes("Legacy"))
-      if (filteredAssets.length > 0) {
-        asset = filteredAssets[0];
-      }
-    }
+  function getCleanedUpRelease(release: OctokitRelease) {
+    const asset = release.assets[0];
 
     return {
       downloadUrl: asset.browser_download_url,
@@ -134,10 +128,10 @@ export async function fetchMods(modsJson: string) {
     };
   }
 
-  function getCleanedUpReleaseList(releaseList: ReleaseList, uniqueName: string) {
+  function getCleanedUpReleaseList(releaseList: ReleaseList) {
     return releaseList
       .filter(({ assets }) => assets.length > 0)
-      .map((release: OctokitRelease) => getCleanedUpRelease(release, uniqueName));
+      .map(getCleanedUpRelease);
   }
 
   const modReleaseResults = await Promise.allSettled<Mod>(
@@ -150,9 +144,9 @@ export async function fetchMods(modsJson: string) {
         readme,
       }) => {
         try {
-          const releases = getCleanedUpReleaseList(releaseList, modInfo.uniqueName);
-          const prereleases = getCleanedUpReleaseList(prereleaseList, modInfo.uniqueName);
-          const cleanLatestRelease = getCleanedUpRelease(latestRelease, modInfo.uniqueName);
+          const releases = getCleanedUpReleaseList(releaseList);
+          const prereleases = getCleanedUpReleaseList(prereleaseList);
+          const cleanLatestRelease = getCleanedUpRelease(latestRelease);
           const repo = `${REPO_URL_BASE}/${modInfo.repo}`;
 
           console.log("releases", toJsonString(releases));
