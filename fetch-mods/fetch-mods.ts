@@ -1,14 +1,11 @@
 import { getOctokit } from "./get-octokit";
-import {
-  filterFulfilledPromiseSettleResults,
-  getSettledResult,
-} from "./promises";
-import { toJsonString } from "./to-json-string";
+import { filterFulfilledPromiseSettleResults } from "./promises";
 
 const REPO_URL_BASE = "https://github.com";
 
 export async function fetchMods(modsJson: string) {
-  const modInfos: ModInfo[] = JSON.parse(modsJson);
+  const modDb: ModDB = JSON.parse(modsJson);
+  const modInfos = modDb.mods;
   const octokit = getOctokit();
 
   type OctokitRelease = Awaited<
@@ -210,6 +207,7 @@ export async function fetchMods(modsJson: string) {
                   date: latestPrerelease.date,
                 }
               : undefined,
+            tags: modInfo.tags,
           };
 
           return mod;

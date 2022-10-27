@@ -1,3 +1,8 @@
+type ModDB = {
+  $schema: string
+  mods: ModInfo[];
+};
+
 type ModInfo = {
   name: string;
   uniqueName: string;
@@ -7,6 +12,7 @@ type ModInfo = {
   utility?: boolean;
   parent?: string;
   authorDisplay?: string;
+  tags: string[];
 };
 
 type Release = {
@@ -39,4 +45,5 @@ interface Mod extends Release {
     downloadUrl: string;
     date: string;
   };
+  tags: string[];
 }

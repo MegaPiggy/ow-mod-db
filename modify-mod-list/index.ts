@@ -14,7 +14,12 @@ enum Output {
   editedExistingMod = "edited-existing-mod",
 }
 
-// Mod info from mods.json.
+// Mod db from mods.json.
+type ModDB = {
+  $schema: string
+  mods: ModInfo[];
+};
+
 type ModInfo = {
   name: string;
   uniqueName: string;
@@ -24,6 +29,7 @@ type ModInfo = {
   utility?: boolean;
   parent?: string;
   authorDisplay?: string;
+  tags: string[];
 };
 
 // From .github/ISSUE_TEMPLATE/add-mod.yml.
@@ -35,6 +41,7 @@ type IssueForm = {
   utility?: string;
   parent?: string;
   authorDisplay?: string;
+  tags?: string;
 };
 
 async function run() {
@@ -46,6 +53,7 @@ async function run() {
     utility,
     alpha,
     authorDisplay,
+    tags,
   }: IssueForm = JSON.parse(core.getInput(Input.form));
 
   if (!name || !repoUrl || !uniqueName) {
@@ -58,12 +66,14 @@ async function run() {
     throw new Error("Invalid repo URL " + repoUrl);
   }
 
-  const mods: ModInfo[] = JSON.parse(core.getInput(Input.mods));
+  const modDb: ModDB = JSON.parse(core.getInput(Input.mods));
+  const mods = modDb.mods;
 
   const newMod: ModInfo = {
     name,
     uniqueName,
     repo,
+    tags: [],
   };
 
   if (parent) {
@@ -82,6 +92,10 @@ async function run() {
     newMod.authorDisplay = authorDisplay;
   }
 
+  if (tags) {
+    newMod.tags = tags.split(", ");
+  }
+
   const existingMod = mods.find(
     (modFromList) => uniqueName === modFromList.uniqueName
   );
@@ -93,18 +107,24 @@ async function run() {
     existingMod.utility = newMod.utility;
     existingMod.alpha = newMod.alpha;
     existingMod.authorDisplay = newMod.authorDisplay;
+    existingMod.tags = newMod.tags;
   }
 
-  const newMods: ModInfo[] = existingMod ? mods : [...mods, newMod];
+  const newModDb: ModDB = {
+    $schema: "./mods.schema.json",
+    mods: existingMod ? mods : [...mods, newMod],
+  };
 
-  const jsonString = JSON.stringify(newMods, null, 2);
+  const jsonString = JSON.stringify(newModDb, null, 2);
 
   core.setOutput(Output.mods, jsonString);
 
   const outFile = core.getInput(Input.outFile);
 
   if (outFile) {
-    writeFile(outFile, jsonString, (error) => { if (error) console.log("Couldn't Write To Mods File: ", error) });
+    writeFile(outFile, jsonString, (error) => {
+      if (error) console.log("Couldn't Write To Mods File: ", error);
+    });
   }
 
   if (existingMod) {
