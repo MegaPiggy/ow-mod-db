@@ -1523,6 +1523,15 @@
       ],
       "parent": "xen.NewHorizons",
       "authorDisplay": "xen & JohnCorby"
+    },
+    {
+      "name": "Ooga Booga",
+      "uniqueName": "SrPelo.OogaBooga",
+      "repo": "MegaPiggy/TestOuterWildsMod",
+      "tags": [
+        "content"
+      ],
+      "authorDisplay": "Sr Pelo"
     }
   ]
 }
