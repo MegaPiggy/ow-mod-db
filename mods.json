@@ -1685,6 +1685,16 @@
         "tweaks"
       ],
       "parent": "xen.NewHorizons"
+    },
+    {
+      "name": "Test",
+      "uniqueName": "MegaPiggy.Test",
+      "repo": "Acamaeda/OuterWildsShortcut",
+      "tags": [
+        "tweaks"
+      ],
+      "parent": "xen.NewHorizons",
+      "authorDisplay": "MegaPiggy"
     }
   ]
 }
